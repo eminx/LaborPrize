@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
-import {mount} from 'react-mounter';
+import {mount} from 'react-mounter'
 import Emin from '../../ui/pages/emin.jsx';
- 
+import Ranking from '../../ui/pages/ranking.jsx'; 
+
 // App component - represents the whole app
 const MainLayout = ({content}) => (
   <div className="container">
+      <h1>What</h1>
+    <main>
+    {content}
+    </main>
+  </div>
+);
+
+const Layout2 = ({content}) => (
+  <div className="container">
     <header>
-      <h1>Labor Prize</h1>
+      <h1>Ranking</h1>
     </header> 
     <main>
-      {content}
+    {content}
     </main>
   </div>
 );
@@ -38,3 +48,10 @@ FlowRouter.route(`/create-task`,{
   }
 });
 
+FlowRouter.route('/rankings',{
+  action(){
+    mount(Layout2, {
+      content:(<Ranking/>)
+    })
+  }
+});
