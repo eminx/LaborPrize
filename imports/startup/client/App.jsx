@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {mount} from 'react-mounter'
 import Emin from '../../ui/pages/emin.jsx';
 import Ranking from '../../ui/pages/ranking.jsx'; 
+
 // App component - represents the whole app
 const MainLayout = ({content}) => (
   <div className="container">

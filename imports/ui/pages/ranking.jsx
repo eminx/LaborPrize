@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import { Mongo } from 'meteor/mongo'
 
 Rankings = new Mongo.Collection("rankings");
  
