@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {mount} from 'react-mounter';
 import Emin from '../../ui/pages/emin.jsx';
-import FlowRouter from 'flow-router';
  
 // App component - represents the whole app
 const MainLayout = ({content}) => (
@@ -22,3 +21,28 @@ FlowRouter.route('/emin',{
     })
   }
 });
+
+FlowRouter.route(`/jobs`,{
+  action(){
+    mount(MainLayout, {
+      content: (<CurrentJobs />)   
+    })
+  }
+});
+
+FlowRouter.route(`/my-tasks`,{
+  action(){
+    mount(MainLayout, {
+      content: (<MyTasks />)   
+    })
+  }
+});
+
+FlowRouter.route(`/create-task`,{
+  action(){
+    mount(MainLayout, {
+      content: (<CreateTask />)   
+    })
+  }
+});
+
