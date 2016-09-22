@@ -13,17 +13,6 @@ const MainLayout = ({content}) => (
   </div>
 );
 
-const Layout2 = ({content}) => (
-  <div className="container">
-    <header>
-      <h1>Ranking</h1>
-    </header> 
-    <main>
-    {content}
-    </main>
-  </div>
-);
-
 FlowRouter.route(`/jobs`,{
   action(){
     mount(MainLayout, {
