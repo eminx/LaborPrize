@@ -14,14 +14,6 @@ const MainLayout = ({content}) => (
   </div>
 );
 
-FlowRouter.route('/emin',{
-  action(){
-    mount(MainLayout, {
-      content: (<Emin />)   
-    })
-  }
-});
-
 FlowRouter.route(`/jobs`,{
   action(){
     mount(MainLayout, {
