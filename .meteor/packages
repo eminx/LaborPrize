@@ -23,3 +23,5 @@ insecure                # Allow all DB writes from clients (for prototyping)
 aldeed:collection2
 kadira:flow-router
 meteortoys:allthings
+aldeed:simple-schema
+check

@@ -15,9 +15,7 @@ const MainLayout = ({content}) => (
 
 const Layout2 = ({content}) => (
   <div className="container">
-    <header>
-      <h1>Ranking</h1>
-    </header> 
+      <h1>Rankings</h1>
     <main>
     {content}
     </main>
@@ -26,16 +24,13 @@ const Layout2 = ({content}) => (
 
 FlowRouter.route('/emin',{
   action(){
-    mount(MainLayout, {
-      content: (<Emin />)   
-    })
+    mount(MainLayout, {content: (<Emin />)})
   }
 });
 
 FlowRouter.route('/ranking',{
+
   action(){
-    mount(Layout2, {
-      content:(<Ranking/>)
-    })
+    mount(Layout2, {content:(<Ranking/>)})
   }
 });
