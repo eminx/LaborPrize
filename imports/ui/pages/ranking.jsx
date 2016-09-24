@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Mongo } from 'meteor/mongo'
 
-Rankings = new Mongo.Collection("rankings");
+// Rankings = new Mongo.Collection("rankings");
  
 // App component - represents the whole app
 export default class Ranking extends Component {

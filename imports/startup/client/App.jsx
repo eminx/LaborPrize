@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {mount} from 'react-mounter'
-import Emin from '../../ui/pages/emin.jsx';
-import Ranking from '../../ui/pages/ranking.jsx'; 
+import CurrentJobs from '../../ui/pages/CurrentJobs.jsx';
+import MyTasks from '../../ui/pages/MyTasks.jsx';
+import CreateTask from '../../ui/pages/CreateTask.jsx'; 
 
 // App component - represents the whole app
 const MainLayout = ({content}) => (
