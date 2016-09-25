@@ -10,7 +10,7 @@ export default class Ranking extends Component {
 		e.preventDefault();
  		console.log("u accepted")
  	}
- 	handeDecline(e){
+ 	handelDecline(e){
  		e.preventDefault();
 	 	console.log("u declined")
  	}
@@ -22,7 +22,7 @@ export default class Ranking extends Component {
       		<button>Accept</button>
       		</form>
       	<br/>		
-      		<form onSubmit = {this.handeDecline}>	
+      		<form onSubmit = {this.handelDecline}>	
      		 <button>Decline</button>
      		 </form>
       </div>

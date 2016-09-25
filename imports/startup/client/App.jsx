@@ -1,23 +1,41 @@
 import React, { Component } from 'react';
 import {mount} from 'react-mounter'
+import CreateTask from '../../ui/pages/CreateTask.jsx';
 import CurrentJobs from '../../ui/pages/CurrentJobs.jsx';
+import JoinLaborPrize from '../../ui/pages/JoinLaborPrize.jsx';
 import MyTasks from '../../ui/pages/MyTasks.jsx';
-import CreateTask from '../../ui/pages/CreateTask.jsx'; 
 
 // App component - represents the whole app
 const MainLayout = ({content}) => (
   <div className="container">
-      <h1>What</h1>
+    
     <main>
     {content}
     </main>
   </div>
 );
 
+FlowRouter.route(`/create-task`,{
+  action(){
+    mount(MainLayout, {
+      content: (<CreateTask />)
+    })
+  }
+});
+
+
 FlowRouter.route(`/jobs`,{
   action(){
     mount(MainLayout, {
-      content: (<CurrentJobs />)   
+      content: (<CurrentJobs />)
+    })
+  }
+});
+
+FlowRouter.route(`/join-labor-prize`,{
+  action(){
+    mount(MainLayout, {
+      content: (<JoinLaborPrize />)
     })
   }
 });
@@ -25,15 +43,7 @@ FlowRouter.route(`/jobs`,{
 FlowRouter.route(`/my-tasks`,{
   action(){
     mount(MainLayout, {
-      content: (<MyTasks />)   
-    })
-  }
-});
-
-FlowRouter.route(`/create-task`,{
-  action(){
-    mount(MainLayout, {
-      content: (<CreateTask />)   
+      content: (<MyTasks />)
     })
   }
 });
