@@ -4,16 +4,24 @@ import CreateTask from '../../ui/pages/CreateTask.jsx';
 import CurrentJobs from '../../ui/pages/CurrentJobs.jsx';
 import JoinLaborPrize from '../../ui/pages/JoinLaborPrize.jsx';
 import MyTasks from '../../ui/pages/MyTasks.jsx';
+import StartPage from '../../ui/pages/StartPage.jsx';
 
 // App component - represents the whole app
 const MainLayout = ({content}) => (
   <div className="container">
-    
     <main>
     {content}
     </main>
   </div>
 );
+
+FlowRouter.route(`/`,{
+  action(){
+    mount(MainLayout,{
+      content:(<StartPage/>)
+    })
+  }
+});
 
 FlowRouter.route(`/create-task`,{
   action(){
