@@ -17,7 +17,7 @@ export default class Ranking extends Component {
   
   render() {
     return (
-      <div className="container">
+      <div className="">
       		<form onSubmit = {this.handleSubmit}>
       		<button>Accept</button>
       		</form>

@@ -5,6 +5,7 @@ import CurrentJobs from '../../ui/pages/CurrentJobs.jsx';
 import JoinLaborPrize from '../../ui/pages/JoinLaborPrize.jsx';
 import Login from '../../ui/pages/Login.jsx';
 import MyTasks from '../../ui/pages/MyTasks.jsx';
+import Task from '../../ui/pages/Task.jsx';
 import StartPage from '../../ui/pages/StartPage.jsx';
 
 // App component - represents the whole app
@@ -48,6 +49,7 @@ FlowRouter.route(`/join-labor-prize`, {
         })
     }
 });
+
 FlowRouter.route(`/login`, {
     action(){
         mount(MainLayout, {
@@ -55,6 +57,8 @@ FlowRouter.route(`/login`, {
         })
     }
 });
+
+
 
 FlowRouter.route(`/my-tasks`, {
     action(){
@@ -68,6 +72,15 @@ FlowRouter.route('/rankings', {
     action(){
         mount(Layout2, {
             content: (<Ranking/>)
+        })
+    }
+});
+
+
+FlowRouter.route('/task/:taskId', {
+    action: function(params, queryParams) {
+        mount(MainLayout, {
+            content: (<Task {...params} />)
         })
     }
 });

@@ -5,7 +5,7 @@ export default class CurrentJobs extends Component {
  
   render() {
     return (
-      <div className="container">
+      <div className="">
         <header>
           <h1>CurrentJobs</h1>
         </header> 
