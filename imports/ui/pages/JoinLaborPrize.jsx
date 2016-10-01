@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 // App component - represents the whole app
+
 export default class JoinLaborPrize extends Component {
 
     onSubmit(e) {
@@ -7,7 +8,6 @@ export default class JoinLaborPrize extends Component {
         console.log(e.target)
         var ele = $(e.target);
         var companyName = ele.find("#company_name").val();
-        var email = ele.find("#email").val();
         var username = ele.find("#username").val();
         var password = ele.find("#password").val();
         var confirmPassword = ele.find("#confirmPassword").val();
@@ -21,17 +21,11 @@ export default class JoinLaborPrize extends Component {
             };
             Accounts.createUser(accountInfo, function (er) {
                 if (er) {
-                    Materialize.toast('Error!', 4000);
+                    console.log(er);
+                    Materialize.toast(er.reason, 4000);
                 }
                 else {
-                    Meteor.loginWithPassword(username, password, function (er) {
-                        if (er) {
-                            Materialize.toast('Error!', 4000);
-                        } else {
-                            console.log("success");
-                        }
-
-                    })
+                    FlowRouter.redirect("/");
                 }
             });
         } else {
@@ -52,14 +46,8 @@ export default class JoinLaborPrize extends Component {
                     </div>
                     <div className="row">
                         <div className="input-field col s12">
-                            <input id="email" type="text" class="validate"/>
-                            <label htmlFor="email">Email</label>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="input-field col s12">
                             <input id="username" type="text" class="validate"/>
-                            <label htmlFor="username">Username</label>
+                            <label htmlFor="username">Username/Email</label>
                         </div>
                     </div>
                     <div className="row">

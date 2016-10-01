@@ -5,6 +5,7 @@ export default class StartPage extends Component {
 
     handleJoinLaborPrize(e){
         e.preventDefault();
+        FlowRouter.redirect("/join-labor-prize")
     }
     render() {
         return (
