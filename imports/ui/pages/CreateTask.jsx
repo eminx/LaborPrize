@@ -5,7 +5,7 @@ export default class CreateTask extends Component {
 	_createTask(e) {
 		e.preventDefault();
 		const form = e.target;
-		const 
+		const
 			taskTitle = form.task_title.value,
 			taskDesc = form.task_description.value;
 		Meteor.call('createTask', taskTitle, taskDesc, (error, response) => {
@@ -14,10 +14,9 @@ export default class CreateTask extends Component {
                 Materialize.toast(error.reason, 4000);
             }
         });
-
         e.target.task_title.value = "";
         e.target.task_description.value = "";
-	}
+    }
 
     render() {
 
@@ -26,7 +25,6 @@ export default class CreateTask extends Component {
             <header>
               <h1>CreateTask</h1>
             </header> 
-
             	<div className="col s12 m4">
                     <form onSubmit={this._createTask} className="">
                         <div className="row">
