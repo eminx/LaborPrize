@@ -4,23 +4,48 @@ import CreateTask from '../../ui/pages/CreateTask.jsx';
 import CurrentJobs from '../../ui/pages/CurrentJobs.jsx';
 import JoinLaborPrize from '../../ui/pages/JoinLaborPrize.jsx';
 import Login from '../../ui/pages/Login.jsx';
+import LoggedInNavBar from '../../ui/components/LoggedInNavBar.jsx';
+import LoggedOutNavBar from '../../ui/components/LoggedOutNavBar.jsx';
 import MyTasks from '../../ui/pages/MyTasks.jsx';
 import Task from '../../ui/pages/Task.jsx';
+import Style from '../../ui/layouts/Style.scss';
+import SlideMenu from '../../ui/pages/SlideMenu.jsx';
 import StartPage from '../../ui/pages/StartPage.jsx';
 
 // App component - represents the whole app
-const MainLayout = ({content}) => (
-    <div className="container">
-        <main>
+const MainLayout = ({content}) => ({
+    render(){
+
+        if (!Meteor.userId()) {
+            return (
+                <div>
+                <LoggedOutNavBar/>
             {content}
-        </main>
-    </div>
-);
+           </div>
+            )
+        } else
+            return (
+                <div>
+                    <LoggedInNavBar/>
+                    {content}
+                </div>
+            )
+    }
+});
+
 
 FlowRouter.route(`/`, {
     action(){
         mount(MainLayout, {
             content: (<StartPage/>)
+        })
+    }
+});
+
+FlowRouter.route(`/Slide`, {
+    action(){
+        mount(MainLayout, {
+            content: (<SlideMenu/>)
         })
     }
 });
@@ -59,7 +84,6 @@ FlowRouter.route(`/login`, {
 });
 
 
-
 FlowRouter.route(`/my-tasks`, {
     action(){
         mount(MainLayout, {
@@ -78,7 +102,7 @@ FlowRouter.route('/rankings', {
 
 
 FlowRouter.route('/task/:taskId', {
-    action: function(params, queryParams) {
+    action: function (params, queryParams) {
         mount(MainLayout, {
             content: (<Task {...params} />)
         })

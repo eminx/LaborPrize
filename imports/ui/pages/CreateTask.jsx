@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from "react";
 
 export default class CreateTask extends Component {
  	
@@ -22,9 +22,6 @@ export default class CreateTask extends Component {
 
         return (
           <div className="">
-            <header>
-              <h1>CreateTask</h1>
-            </header> 
             	<div className="col s12 m4">
                     <form onSubmit={this._createTask} className="">
                         <div className="row">

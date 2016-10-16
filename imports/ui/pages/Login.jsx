@@ -25,9 +25,6 @@ export default class MyTasks extends Component {
     render() {
         return (
             <div className="row">
-                <h1>
-                WHAATAT
-                </h1>
                 <form onSubmit={this.onSubmit} className="col offset-s4 s4">
                     <div className="row">
                         <div className="input-field col s12">

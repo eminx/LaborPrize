@@ -13,28 +13,9 @@ export default class StartPage extends Component {
         FlowRouter.redirect("/login");
     }
     render() {
-        if (Meteor.userId()) {
-            return (
-                <div>
-                    <header>
-                        <h1>Main Page</h1>
-                    </header>
-                    <form onSubmit={this.handleLogin}>
-                        <button>Login</button>
-                    </form>
-                    <form onSubmit={this.handleJoinLaborPrize}>
-                        <button>Join Labor-prize</button>
-                    </form>
-                </div>
 
+            return (
+                <h1>WELCOME TO LABORPRIZE</h1>
             );
         }
-        else{
-            return(
-                <h1>
-                    You are not logged in!
-                </h1>
-            )
-        }
-    }
 }
