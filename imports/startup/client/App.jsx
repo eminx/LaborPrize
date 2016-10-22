@@ -7,15 +7,15 @@ import Login from '../../ui/pages/Login.jsx';
 import LoggedInNavBar from '../../ui/components/LoggedInNavBar.jsx';
 import LoggedOutNavBar from '../../ui/components/LoggedOutNavBar.jsx';
 import MyTasks from '../../ui/pages/MyTasks.jsx';
-import Task from '../../ui/pages/Task.jsx';
+import Rankings from '../../ui/pages/Rankings.jsx';
 import Style from '../../ui/layouts/Style.scss';
 import SlideMenu from '../../ui/pages/SlideMenu.jsx';
 import StartPage from '../../ui/pages/StartPage.jsx';
+import Task from '../../ui/pages/Task.jsx';
 
 // App component - represents the whole app
 const MainLayout = ({content}) => ({
     render(){
-
         if (!Meteor.userId()) {
             return (
                 <div>
@@ -87,15 +87,15 @@ FlowRouter.route(`/login`, {
 FlowRouter.route(`/my-tasks`, {
     action(){
         mount(MainLayout, {
-            content: (<MyTasks />)
+            content: (<MyTasks/>)
         })
     }
 });
 
 FlowRouter.route('/rankings', {
     action(){
-        mount(Layout2, {
-            content: (<Ranking/>)
+        mount(MainLayout, {
+            content: (<Rankings/>)
         })
     }
 });

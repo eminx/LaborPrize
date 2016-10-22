@@ -5,20 +5,34 @@ import { Mongo } from 'meteor/mongo'
  
 // App component - represents the whole app
 export default class Ranking extends Component {
- 
- 	handleSubmit(e){
+
+	handleAccept(e){
 		e.preventDefault();
- 		console.log("u accepted")
+
+		// const		const accept = true;
+		Meteor.call('updateRankings', accept, (error, response) => {
+			if (error) {
+				console.log(error);
+				Materialize.toast(error.reason, 4000);
+			}
+		});
+		// 	rankAccept = form.
+ 		// console.log("u accepted")
  	}
  	handelDecline(e){
- 		e.preventDefault();
-	 	console.log("u declined")
+		const decline = false;
+		Meteor.call('updateRankings', decline, (error, response) => {
+			if (error) {
+				console.log(error);
+				Materialize.toast(error.reason, 4000);
+			}
+		});
  	}
   
   render() {
     return (
       <div className="">
-      		<form onSubmit = {this.handleSubmit}>
+      		<form onSubmit = {this.handleAccept}>
       		<button>Accept</button>
       		</form>
       	<br/>		
