@@ -8,7 +8,7 @@ export default class LoggedInNavBar extends Component {
     render(){
         return(
             <nav className="teal lighten-2">
-                <ul class="nav nav-pills">
+                <ul className="nav nav-pills">
                     <li><a>Login</a></li>
                     <li><a>Join Laborprize</a></li>
                 </ul>

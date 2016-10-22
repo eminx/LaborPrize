@@ -42,48 +42,6 @@ FlowRouter.route(`/`, {
     }
 });
 
-FlowRouter.route(`/Slide`, {
-    action(){
-        mount(MainLayout, {
-            content: (<SlideMenu/>)
-        })
-    }
-});
-
-FlowRouter.route(`/create-task`, {
-    action(){
-        mount(MainLayout, {
-            content: (<CreateTask />)
-        })
-    }
-});
-
-
-FlowRouter.route(`/jobs`, {
-    action(){
-        mount(MainLayout, {
-            content: (<CurrentJobs />)
-        })
-    }
-});
-
-FlowRouter.route(`/join-labor-prize`, {
-    action(){
-        mount(MainLayout, {
-            content: (<JoinLaborPrize />)
-        })
-    }
-});
-
-FlowRouter.route(`/login`, {
-    action(){
-        mount(MainLayout, {
-            content: (<Login/>)
-        })
-    }
-});
-
-
 FlowRouter.route(`/my-tasks`, {
     action(){
         mount(MainLayout, {
@@ -91,15 +49,6 @@ FlowRouter.route(`/my-tasks`, {
         })
     }
 });
-
-FlowRouter.route('/rankings', {
-    action(){
-        mount(Layout2, {
-            content: (<Ranking/>)
-        })
-    }
-});
-
 
 FlowRouter.route('/task/:taskId', {
     action: function (params, queryParams) {

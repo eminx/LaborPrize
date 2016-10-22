@@ -28,13 +28,13 @@ export default class MyTasks extends Component {
                 <form onSubmit={this.onSubmit} className="col offset-s4 s4">
                     <div className="row">
                         <div className="input-field col s12">
-                            <input id="username" type="text" class="validate"/>
+                            <input id="username" type="text" className="validate"/>
                             <label htmlFor="username">Username/Email</label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col s12">
-                            <input id="password" type="password" class="validate"/>
+                            <input id="password" type="password" className="validate"/>
                             <label htmlFor="password">Password</label>
                         </div>
                     </div>

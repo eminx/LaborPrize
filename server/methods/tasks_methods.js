@@ -14,6 +14,7 @@ Meteor.methods({
 			})
 		} catch (err) {
 			console.error(err.reason);
+			return err;
 		}
 	}
 })
