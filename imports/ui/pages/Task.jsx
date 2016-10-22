@@ -3,11 +3,11 @@ import { composeWithTracker } from 'react-komposer';
 
 function composer(props, onData) {
   const subscription = Meteor.subscribe('task', props.taskId);
-  if (subscription.ready()) {
-    const data = {
+    if (subscription.ready()) {
+        const data = {
       ready: true,
       tasks: Tasks.find({_id: props.taskId}).fetch()
-    }
+    };
     onData(null, data);
   } else {
     onData(null, {ready: false});
