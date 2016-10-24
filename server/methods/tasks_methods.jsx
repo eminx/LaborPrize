@@ -4,7 +4,6 @@ Meteor.methods({
 	createTask(title, desc) {
 		check(title, String);
 		check(desc, String);
-		
 		try {
 			Tasks.insert({
 				user_id: this.userId,
@@ -16,4 +15,4 @@ Meteor.methods({
 			console.error(err.reason);
 		}
 	}
-})
+});
