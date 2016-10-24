@@ -12,7 +12,6 @@ Meteor.methods({
                     })
 
             } else {
-                console.log("u got declined")
                 Rankings.update({userId: this.userId},
                     {
                         $inc: {declined: 1}
@@ -21,6 +20,21 @@ Meteor.methods({
         } catch (err) {
             console.error(err.reason)
         }
+    },
+
+    createRankings(companyName){
+        try {
+            Tasks.insert({
+                user_id: this.userId,
+                company_Name: companyName,
+                accepted: 0,
+                declined: 0,
+                created_at: new Date()
+            })
+        } catch (err) {
+            console.error(err.reason);
+        }
     }
-})
+
+});
 
