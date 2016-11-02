@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Accounts } from 'meteor/accounts-base';
 
-export default class JoinLaborPrize extends Component {
+export default class Signup extends Component {
 
     onSubmit(e) {
         e.preventDefault();
@@ -42,7 +42,7 @@ export default class JoinLaborPrize extends Component {
                 <form onSubmit={this.onSubmit} className="col offset-s4 s4">
                     <div className="row">
                         <div className="input-field col s12">
-                            <i className="material-icons prefix">account_circle</i>
+                            {/*<i className="material-icons prefix">account_circle</i>*/}
                             <input id="company_name" type="text" className="validate"/>
                             <label htmlFor="company_name">Company Name</label>
                         </div>

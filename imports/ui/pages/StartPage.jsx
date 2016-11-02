@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Login from './Login.jsx';
+import Signup from './Signup.jsx';
+
 // App component - represents the whole app
 export default class StartPage extends Component {
 
@@ -15,7 +18,11 @@ export default class StartPage extends Component {
     render() {
 
             return (
-                <h1>WELCOME TO LABORPRIZE</h1>
+                <div>
+                    <Signup />
+                    <Login />
+                    <h1>WELCOME TO LABORPRIZE</h1>
+                </div>
             );
         }
 }

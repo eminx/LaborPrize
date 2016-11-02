@@ -3,8 +3,9 @@ import { composeWithTracker } from 'react-komposer';
 
 function composer(props, onData) {
   const subscription = Meteor.subscribe('task', props.taskId);
-    if (subscription.ready()) {
-        const data = {
+  if (subscription.ready()) {
+    console.log(Tasks.find().fetch());
+    const data = {
       ready: true,
       tasks: Tasks.find({_id: props.taskId}).fetch()
     };
@@ -15,8 +16,8 @@ function composer(props, onData) {
 }
 
 const Task = React.createClass({
+  
   render() {
-
     return (
       <div className="">
 	        <header>

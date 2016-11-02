@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import Signup from '../../ui/pages/Signup.jsx';
+import Login from './Login.jsx';
 
 export default class CreateTask extends Component {
 
@@ -22,27 +24,38 @@ export default class CreateTask extends Component {
 
         return (
             <div className="">
-                <div className="col s12 m4">
-                    <form onSubmit={this._createTask} className="">
-                        <div className="row">
-                            <div className="input-field col s12">
-                                <input id="task-title" name="task_title" type="text" className="validate"/>
-                                <label htmlFor="task-title">Task Title</label>
+                {
+                    Meteor.userId() ?
+                    
+                    <div className="col s12 m4">
+                        <form onSubmit={this._createTask} className="">
+                            <div className="row">
+                                <div className="input-field col s12">
+                                    <input id="task-title" name="task_title" type="text" className="validate"/>
+                                    <label htmlFor="task-title">Task Title</label>
+                                </div>
                             </div>
-                        </div>
-                        <div className="row">
-                            <div className="input-field col s12">
-                                <textarea id="task-desc" name="task_description" type="text"
-                                          className="materialize-textarea validate">
-                                </textarea>
-                                <label htmlFor="task-desc">Task Description</label>
+                            <div className="row">
+                                <div className="input-field col s12">
+                                    <textarea id="task-desc" name="task_description" type="text"
+                                              className="materialize-textarea validate">
+                                    </textarea>
+                                    <label htmlFor="task-desc">Task Description</label>
+                                </div>
                             </div>
-                        </div>
-                        <div className="row">
-                            <button className="waves-effect waves-light btn">Create</button>
-                        </div>
-                    </form>
-                </div>
+                            <div className="row">
+                                <button className="waves-effect waves-light btn">Create</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    :
+
+                    <div>
+                        <Signup />
+                        <Login />
+                    </div>
+                }
             </div>
         );
     }
