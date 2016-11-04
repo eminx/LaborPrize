@@ -26,7 +26,6 @@ export default class CreateTask extends Component {
             <div className="">
                 {
                     Meteor.userId() ?
-                    
                     <div className="col s12 m4">
                         <form onSubmit={this._createTask} className="">
                             <div className="row">
@@ -48,9 +47,7 @@ export default class CreateTask extends Component {
                             </div>
                         </form>
                     </div>
-
                     :
-
                     <div>
                         <Signup />
                         <Login />

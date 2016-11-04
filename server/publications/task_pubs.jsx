@@ -6,10 +6,10 @@ Meteor.publish('task', function(taskId) {
 		user_id: currentUserId,
 		_id: taskId
 	})
-})
+});
 
 Meteor.publish(`my-tasks`, function() {
 	return Tasks.find({
 		user_id: this.userId
 	})
-})
+});
