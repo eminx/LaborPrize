@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { composeWithTracker } from 'react-komposer';
 
 function composer(props, onData) {
     const subscription = Meteor.subscribe('getSolutions',props.taskId);

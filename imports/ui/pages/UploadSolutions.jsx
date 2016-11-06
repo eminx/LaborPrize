@@ -17,13 +17,32 @@ export default class UploadSolutions extends Component {
         e.target.task_title.value = "";
         e.target.task_description.value = "";
     }
+
+    _uploadTask(e){
+        e.preventDefault();
+        const form = e.target;
+        console.log(form.uploaded_file.value);
+        console.log("whaat but");
+    }
+
     
     render() {
         return (
             <div className="">
-                <header>
-                    <h1>UploadSolutions</h1>
-                </header>
+                <form onSubmit={this._uploadTask} className="">
+                    <div className="file-field input-field">
+                        <div className="btn">
+                            <span>File</span>
+                            <input type="file" id ="uploaded_file" name="uploaded_file"/>
+                        </div>
+                        <div className="file-path-wrapper">
+                            <input className="file-path validate" type="text"/>
+                        </div>
+                        <div className="row">
+                            <button className="waves-effect waves-light btn">Upload</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         );
     }

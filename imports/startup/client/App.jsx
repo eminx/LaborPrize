@@ -6,6 +6,7 @@ import LoggedOutNavBar from '../../ui/components/LoggedOutNavBar.jsx';
 import MySolutions from '../../ui/pages/MySolutions.jsx';
 import MyTasks from '../../ui/pages/MyTasks.jsx';
 import StartPage from '../../ui/pages/StartPage.jsx';
+import UploadSolutions from '../../ui/pages/UploadSolutions.jsx';
 import Task from '../../ui/pages/Task.jsx';
 
 // App component - represents the whole app
@@ -61,7 +62,7 @@ FlowRouter.route('/task/:taskId', {
             content: (<Task {...params} />)
         })
     }
-},
+});
     FlowRouter.route('/solutions/:taskId', {
         action(params, queryParams) {
             mount(MainLayout, {
@@ -69,4 +70,12 @@ FlowRouter.route('/task/:taskId', {
             })
         }
 
-}));
+});
+
+FlowRouter.route("/uploadSolutions", {
+    action(){
+        mount(MainLayout, {
+            content: (<UploadSolutions/>)
+        })
+    }
+});
