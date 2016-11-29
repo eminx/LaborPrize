@@ -13,7 +13,6 @@ export default class UploadSolutions extends Component {
                 alert(error); // you may want to fancy this up when you're ready instead of a popup.
             }
             else {
-                console.log("din-farsa");
                 Meteor.call('uploadSolutions', downloadUrl, (error, response) => {
                     if (error) {
                         console.log(error);

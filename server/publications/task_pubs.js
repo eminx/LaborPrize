@@ -1,4 +1,3 @@
-import { Meteor } from 'meteor/meteor';
 
 Meteor.publish('task', function(taskId) {
 	const currentUserId = this.userId;
@@ -8,7 +7,7 @@ Meteor.publish('task', function(taskId) {
 	})
 });
 
-Meteor.publish(`my-tasks`, function() {
+Meteor.publish('my-tasks', function() {
 	return Tasks.find({
 		user_id: this.userId
 	})
