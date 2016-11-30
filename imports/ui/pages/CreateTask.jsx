@@ -19,17 +19,23 @@ export default class CreateTask extends Component {
         }
         else {
             const
+                emails = this.state.emails,
                 taskTitle = form.task_title.value,
                 taskDesc = form.task_description.value;
 
-            Meteor.call('createTask', taskTitle, taskDesc, this.state.emails, (error, response) => {
+            Meteor.call('createTask', taskTitle, taskDesc, emails, (error, response) => {
                 if (error) {
                     console.log(error);
                     Materialize.toast(error.reason, 4000);
+                } else {
+                    Materialize.toast('Your task is successfully created!', 2000);
                 }
             });
             e.target.task_title.value = "";
             e.target.task_description.value = "";
+            this.setState({
+                emails: []
+            })
         }
     }
 
@@ -43,50 +49,77 @@ export default class CreateTask extends Component {
         e.target.employee_email.value = "";
     }
 
+    _removeEmail(i) {
+        const emails = this.state.emails;
+        emails.splice(i, 1);
+        this.setState({
+            emails: emails
+        })
+    }
+
     render() {
         return (
-            <div className="">
-                {Meteor.userId() ?
-                    <div className="col s12 ">
-                        <form onSubmit={this._createTask.bind(this)} className="">
-                            <form onSubmit={this._addEmail.bind(this)} className="">
-                            <div className="row">
-                                <div className="input-field col s6">
-                                    <input id="employee_email" name="employee_email" type="text" className="validate"/>
-                                    <label>email</label>
-                                </div>
-                                    <button className="waves-effect waves-light btn">add email</button>
+            <div className="container" style={{marginTop: '2em'}}>
+                <div className="row">
+                    {Meteor.userId() ?
+                        <div className="row">
+                            <form onSubmit={this._addEmail.bind(this)} className="col s12">
+                                <div className="row">
+                                    <div className="input-field col s6" style={{marginTop: 0}}>
+                                        <input id="employee_email" name="employee_email" type="email"
+                                               className="validate" />
+                                        <label>email</label>
+                                    </div>
+
+                                    <div className="col s3">
+                                        <button className="waves-effect waves-light btn">add email</button>
+                                    </div>
                                 </div>
                             </form>
 
-                            <div className="row">
-                                <div className="input-field col s6">
-                                    <input id="task-title" name="task_title" type="text" className="validate"/>
-                                    <label htmlFor="task-title">Task Title</label>
-                                </div>
+                            <div className="col s12">
+                                {this.state.emails.map((email, i) => {
+                                    return (
+                                        <div className="chip" key={i}>
+                                            {email}
+                                            <i onClick={this._removeEmail.bind(this, i)} className="">X</i>
+                                        </div>
+                                    )
+                                })}
                             </div>
 
-                            <div className="row">
-                                <div className="input-field col s6">
-                                    <textarea id="task-desc" name="task_description" type="text"
-                                              className="materialize-textarea validate">
-                                    </textarea>
-                                    <label htmlFor="task-desc">Task Description</label>
+                            <form onSubmit={this._createTask.bind(this)} className="">
+                                <div className="row">
+                                    <div className="input-field col s12">
+                                        <input id="task-title" name="task_title" type="text" className="validate"/>
+                                        <label htmlFor="task-title">Task Title</label>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div className="row">
-                                <button className="waves-effect waves-light btn">Create</button>
-                            </div>
-                        </form>
-                    </div>
-                    :
-                    <div>
-                        <Signup />
-                        <Login />
-                    </div>
-                }
+                                <div className="row">
+                                    <div className="input-field col s12">
+                                        <textarea id="task-desc" name="task_description" type="text"
+                                                  className="materialize-textarea validate">
+                                        </textarea>
+                                        <label htmlFor="task-desc">Task Description</label>
+                                    </div>
+                                </div>
+
+                                <div className="row">
+                                    <button className="waves-effect waves-light btn">Create</button>
+                                </div>
+                            </form>
+                        </div>
+                        :
+                        <div>
+                            <Signup />
+                            <Login />
+                        </div>
+                    }
+                </div>
             </div>
+
+
         );
     }
 }

@@ -1,16 +1,16 @@
 import { Meteor } from 'meteor/meteor';
 
 Meteor.methods({
-	createTask(title, desc, employeeEmails) {
+	createTask(title, desc, assigneeEmails) {
 		check(desc, String);
-		check(employeeEmails, Array);
+		check(assigneeEmails, Array);
 		check(title, String);
 		try {
 			Tasks.insert({
 				user_id: this.userId,
 				title: title,
 				description: desc,
-				employee_email:employeeEmails,
+				assignee_emails:assigneeEmails,
 				created_at: new Date()
 			});
 		} catch (err) {
