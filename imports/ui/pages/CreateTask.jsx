@@ -87,8 +87,10 @@ export default class CreateTask extends Component {
                                     {this.state.emails.map((email, i) => {
                                         return (
                                             <div className="chip" key={i}>
-                                                {email}
-                                                <i onClick={this._removeEmail.bind(this, i)} className="">X</i>
+                                                <div className="flex-horizontal flex-align-center s3 m2">
+                                                    <span>{email}</span>
+                                                    <i onClick={this._removeEmail.bind(this, i)} className="close-icon material-icons">close</i>
+                                                </div>
                                             </div>
                                         )
                                     })}

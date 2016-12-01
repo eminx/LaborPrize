@@ -1,1 +1,13 @@
 /* CSS declarations go here */
+.flex-horizontal {
+	display: flex;
+	flex-direction: row;
+}
+
+.flex-align-center {
+	align-items: center;
+}
+
+.close-icon {
+	cursor: pointer;
+}
