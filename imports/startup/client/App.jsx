@@ -42,19 +42,10 @@ FlowRouter.route(`/`, {
 FlowRouter.route(`/my-tasks`, {
     action(){
         mount(MainLayout, {
-            content: (<MyTasks/>)
-        })
-    }
-});
-
-FlowRouter.route(`/create-task`, {
-    action(){
-        mount(MainLayout, {
             content: (<CreateTask/>)
         })
     }
 });
-
 
 FlowRouter.route('/task/:taskId', {
     action(params, queryParams) {
@@ -72,7 +63,7 @@ FlowRouter.route('/task/:taskId', {
 
 });
 
-FlowRouter.route("/uploadSolutions", {
+FlowRouter.route('/uploadSolutions', {
     action(){
         mount(MainLayout, {
             content: (<UploadSolutions/>)

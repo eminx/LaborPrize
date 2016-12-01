@@ -19,21 +19,27 @@ const MyTasks = React.createClass({
 
   render() {
     return (
-      <div className="container">
-        <header>
-          <h1>MyTasks</h1>
-          <ul>
+      <div className="">
+        <h4>MyTasks</h4>
+        <ul className="">
           {this.props.ready ? this.props.tasks.map((task) => {
           	return (
-	          	<li key={task._id}>
-	          		<h3>{task.title}</h3>
-	          		<p>{task.description}</p>
-	          	</li>
-	          )
+            	<li key={task._id} className="card blue-grey darken-2">
+            		<div className="card-content white-text">
+                        <span className="new badge">4</span>
+                        <span className="card-title">{task.title}</span>
+                        <p>{task.description}</p>
+                    </div>
+
+                    <div className="card-action">
+                        <a href="#">Edit</a>
+                        <a href="#">Archive</a>
+                    </div>
+            	</li>
+            )
           }) : null }
 
-          </ul>
-        </header> 
+        </ul>
       </div>
     );
   }
