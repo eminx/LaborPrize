@@ -17,6 +17,8 @@ export default class UploadSolutions extends Component {
                     if (error) {
                         console.log(error);
                         Materialize.toast(error.reason, 4000);
+                    } else {
+                        Materialize.toast('Your Assignment is successfully uploaded!', 3000);
                     }
                 });
             }

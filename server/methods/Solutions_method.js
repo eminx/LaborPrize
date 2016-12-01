@@ -1,10 +1,15 @@
 import { Meteor } from 'meteor/meteor'
 
-Meteor.methods({uploadSolutions(link) {
-        const companyId = Meteor.userId();
+Meteor.methods({
+    uploadSolutions(link, ) {
+        const companyId = ,
+            userId = Meteor.userId()
         try {
             Solutions.insert({
-                companyId: companyId,
+                // task_id: 
+                // company_id: companyId,
+                // assignee_name: ,
+                assignee_id: userId,
                 solution_link: link,
                 created_date: new Date()
             })
