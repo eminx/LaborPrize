@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Login from './Login.jsx';
 import Signup from './Signup.jsx';
 
@@ -6,23 +6,34 @@ import Signup from './Signup.jsx';
 export default class StartPage extends Component {
 
 
-    handleJoinLaborPrize(e){
+    handleJoinLaborPrize(e) {
         e.preventDefault();
         FlowRouter.redirect("/join-labor-prize");
     }
 
-    handleLogin(e){
+    handleLogin(e) {
         e.preventDefault();
         FlowRouter.redirect("/login");
     }
+
     render() {
 
-            return (
+        return (
+            <div>
+                { Meteor.userId() ?
                 <div>
-                    <Signup />
-                    <Login />
-                    <h1>WELCOME TO LABORPRIZE</h1>
+                    <h1>Logged In</h1>
+
                 </div>
-            );
-        }
+                    :
+                    <div>
+                        <Signup />
+                        <Login />
+                    </div>
+                }
+
+            </div>
+
+        );
+    }
 }

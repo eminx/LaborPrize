@@ -3,7 +3,7 @@
  */
 import React, {Component} from 'react';
 
-export default class LoggedInNavBar extends Component {
+export default class LoggedOutNavBar extends Component {
 
     render(){
         return(
