@@ -30,7 +30,9 @@ export default class LoggedInNavBar extends Component {
              <ul className="nav nav-pills">
                  <li><a>Profile</a></li>
                  <li onClick={() => {this.myTasks()}}><a>Tasks</a></li>
-                 <li onClick = {() => {this.onSubmit()}}><a>Log Out</a></li>
+                 <ul className="right hide-on-med-and-down">
+                     <li onClick = {() => {this.onSubmit()}}><a>Log Out</a></li>
+                 </ul>
              </ul>
          </nav>
      ) 
