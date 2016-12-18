@@ -15,8 +15,13 @@ export default class LoggedInNavBar extends Component {
             window.location.reload();
           }
         });
-
     }
+    myTasks(){
+        FlowRouter.go("my-tasks");
+        window.location.reload();
+    }
+
+
 
 
     render(){
@@ -24,7 +29,7 @@ export default class LoggedInNavBar extends Component {
          <nav className="teal lighten-2">
              <ul className="nav nav-pills">
                  <li><a>Profile</a></li>
-                 <li onClick={() => {FlowRouter.go('my-tasks')}}>Tasks</li>
+                 <li onClick={() => {this.myTasks()}}><a>Tasks</a></li>
                  <li onClick = {() => {this.onSubmit()}}><a>Log Out</a></li>
              </ul>
          </nav>
