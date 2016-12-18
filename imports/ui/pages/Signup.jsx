@@ -12,13 +12,16 @@ export default class Signup extends Component {
         var username = ele.find("#username").val();
         var password = ele.find("#password").val();
         var confirmPassword = ele.find("#confirmPassword").val();
-
+        var isCompany = true;
         if (password === confirmPassword && password !== "" && confirmPassword !== "") {
 
             var accountInfo = {
-                companyName: companyName,
                 username: username,
-                password: password
+                password: password,
+                profile:{
+                    companyName,
+                    isCompany
+                }
             };
 
             Accounts.createUser(accountInfo, function (er) {
@@ -49,8 +52,8 @@ export default class Signup extends Component {
                     </div>
                     <div className="row">
                         <div className="input-field col s12">
-                            <input id="username" type="text" className="validate"/>
-                            <label htmlFor="username">Username/Email</label>
+                            <input id="username" type="email" className="validate"/>
+                            <label htmlFor="username">Email</label>
                         </div>
                     </div>
                     <div className="row">
