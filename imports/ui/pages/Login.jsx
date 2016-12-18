@@ -16,7 +16,7 @@ export default class MyTasks extends Component {
                 Materialize.toast(er.reason, 4000);
             }
             else {
-                FlowRouter.redirect("/");
+                window.location.reload();
             }
 
         });

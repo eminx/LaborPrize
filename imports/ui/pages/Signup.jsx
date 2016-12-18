@@ -27,7 +27,7 @@ export default class Signup extends Component {
                     Materialize.toast(er.reason, 4000);
                 }
                 else {
-                    FlowRouter.redirect("/");
+                    window.location.reload();
                 }
             });
         } else {
