@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { Accounts } from 'meteor/accounts-base';
 
 export default class Signup extends Component {
-
     onSubmit(e) {
         e.preventDefault();
         console.log(e.target)
@@ -41,7 +40,8 @@ export default class Signup extends Component {
 
     render() {
         return (
-            <div className="row">
+
+        <div className="row">
                 <form onSubmit={this.onSubmit} className="col offset-s4 s4">
                     <div className="row">
                         <div className="input-field col s12">

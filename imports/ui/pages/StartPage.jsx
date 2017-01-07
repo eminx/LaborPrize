@@ -17,13 +17,11 @@ export default class StartPage extends Component {
     }
 
     render() {
-
         return (
             <div>
                 { Meteor.userId() ?
                 <div>
                     <h1>Logged In</h1>
-
                 </div>
                     :
                     <div>

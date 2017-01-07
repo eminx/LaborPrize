@@ -23,7 +23,6 @@ export default class LoggedInNavBar extends Component {
 
 
 
-
     render(){
      return(
          <nav className="teal lighten-2">

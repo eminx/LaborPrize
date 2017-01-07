@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 
 Meteor.methods({
-    uploadSolutions(link, ) {
+    uploadSolutions(link) {
         const userId = Meteor.userId();
         try {
             Solutions.insert({
