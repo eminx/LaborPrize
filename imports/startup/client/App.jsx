@@ -30,7 +30,6 @@ const MainLayout = ({content}) => ({
     }
 });
 
-
 FlowRouter.route(`/`, {
     action(){
         mount(MainLayout, {

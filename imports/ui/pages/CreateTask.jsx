@@ -5,8 +5,8 @@ import MyTasks from './MyTasks.jsx';
 
 export default class CreateTask extends Component {
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state ={
             emails:[]
         };
@@ -57,10 +57,11 @@ export default class CreateTask extends Component {
         emails.splice(i, 1);
         this.setState({
             emails: emails
-        })
+        });
     }
 
     render() {
+        console.log(this.state.isCompany);
         return (
             <div className="container" style={{marginTop: '2em'}}>
                 <div className="row">

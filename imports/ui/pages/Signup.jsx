@@ -2,6 +2,13 @@ import React, {Component} from 'react';
 import { Accounts } from 'meteor/accounts-base';
 
 export default class Signup extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isCompany: props.company
+        }
+    }
+
     onSubmit(e) {
         e.preventDefault();
         console.log(e.target)
@@ -11,7 +18,7 @@ export default class Signup extends Component {
         var username = ele.find("#username").val();
         var password = ele.find("#password").val();
         var confirmPassword = ele.find("#confirmPassword").val();
-        var isCompany = true;
+        var isCompany = this.state.isCompany;
         if (password === confirmPassword && password !== "" && confirmPassword !== "") {
 
             var accountInfo = {
@@ -39,8 +46,8 @@ export default class Signup extends Component {
     }
 
     render() {
+        console.log(this.state.isCompany);
         return (
-
         <div className="row">
                 <form onSubmit={this.onSubmit} className="col offset-s4 s4">
                     <div className="row">
