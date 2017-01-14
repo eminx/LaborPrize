@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Signup from './Signup.jsx';
 import Login from './Login.jsx';
 
-// App component - represents the whole app
 export default class StartPage extends Component {
 
     constructor() {
@@ -11,17 +10,6 @@ export default class StartPage extends Component {
             personChosen:false,
             isCompany: false
         };
-    }
-
-
-    handleJoinLaborPrize(e) {
-        e.preventDefault();
-        FlowRouter.redirect("/join-labor-prize");
-    }
-
-    handleLogin(e) {
-        e.preventDefault();
-        FlowRouter.redirect("/login");
     }
 
     handleCompany(e) {
@@ -73,9 +61,7 @@ export default class StartPage extends Component {
                         <h1>din mamma</h1>
                     </div>
                 }
-                </div>
-
-
+            </div>
         )
     }
 }
