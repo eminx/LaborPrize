@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Signup from './Signup.jsx';
+import Login from './Login.jsx';
 
 // App component - represents the whole app
 export default class StartPage extends Component {
@@ -56,10 +57,12 @@ export default class StartPage extends Component {
                                 {this.state.isCompany == true ?
                                     <div>
                                         <Signup company = {this.state.isCompany}/>
+                                        <Login/>
                                     </div>
                                     :
                                     <div>
                                         <Signup company = {this.state.isCompany}/>
+                                        <Login/>
                                     </div>
                                 }
                             </div>
