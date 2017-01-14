@@ -16,8 +16,8 @@ export default class StartPage extends Component {
         e.preventDefault();
         var personChosen = !this.state.personChosen;
         this.setState({personChosen: personChosen})
-        var comany = !this.state.isCompany;
-        this.setState({isCompany: comany});
+        var company = !this.state.isCompany;
+        this.setState({isCompany: company});
     }
 
     handleAssignee(e) {
