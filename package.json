@@ -7,11 +7,15 @@
   "dependencies": {
     "bcrypt": "^0.8.7",
     "meteor-node-stubs": "~0.2.0",
-    "react": "^15.3.1",
+    "react": "^15.4.2",
+    "react-addons-pure-render-mixin": "^15.4.2",
     "react-burger-menu": "^1.10.8",
     "react-dom": "^15.3.1",
     "react-form-simple-schema": "0.0.3",
     "react-komposer": "^1.13.1",
     "react-mounter": "^1.2.0"
+  },
+  "devDependencies": {
+    "react-dom": "^15.4.2"
   }
 }

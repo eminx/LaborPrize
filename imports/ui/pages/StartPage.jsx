@@ -1,6 +1,22 @@
 import React, {Component} from 'react';
+import { Meteor } from 'meteor/meteor';
 import Signup from './Signup.jsx';
 import Login from './Login.jsx';
+import { composeWithTracker } from 'react-komposer';
+
+function composer(props, onData) {
+    const subscription = Meteor.subscribe('userInfo');
+    if (subscription.ready()) {
+        console.log(Meteor.user().profile.isCompany);
+        const data = {
+            ready: true,
+            userIsCompany: Meteor.user().profile.isCompany
+        };
+        onData(null, data);
+    } else {
+        onData(null, {ready: false});
+    }
+}
 
 export default class StartPage extends Component {
 
@@ -12,10 +28,16 @@ export default class StartPage extends Component {
         };
     }
 
+    componentWillReceiveProps(){
+        if(this.props.ready){
+            console.log(this.props.user);
+        }
+    }
+
     handleCompany(e) {
         e.preventDefault();
         var personChosen = !this.state.personChosen;
-        this.setState({personChosen: personChosen})
+        this.setState({personChosen: personChosen});
         var companyState = !this.state.isCompany;
         this.setState({isCompany: companyState});
     }
@@ -42,14 +64,14 @@ export default class StartPage extends Component {
                             </div>
                             :
                             <div>
-                                {this.state.isCompany == true ?
+                                {this.props.userIsCompany == true ?
                                     <div>
-                                        <Signup company = {this.state.isCompany}/>
+                                        <Signup company={this.state.isCompany}/>
                                         <Login/>
                                     </div>
                                     :
                                     <div>
-                                        <Signup company = {this.state.isCompany}/>
+                                        <Signup company={this.state.isCompany}/>
                                         <Login/>
                                     </div>
                                 }
@@ -58,10 +80,27 @@ export default class StartPage extends Component {
                     </div>
                     :
                     <div>
-                        <h1>din mamma</h1>
+                        {this.props.ready ?
+                            <div>
+                                {this.props.userIsCompany == true ?
+                                    <div>
+                                        <h1> Welcome {Meteor.user().username}</h1>
+                                    </div>
+                                    :
+                                    <div>
+                                        <h1>DIN PAPPA</h1>
+                                    </div>
+                                }
+                            </div>
+                            :
+                            <div>
+
+                            </div>
+                        }
                     </div>
                 }
             </div>
         )
     }
 }
+export default composeWithTracker(composer)(StartPage);
