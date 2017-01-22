@@ -2,18 +2,24 @@ import React, {Component} from 'react';
 import { Accounts } from 'meteor/accounts-base';
 
 export default class Signup extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isCompany: props.company
+        }
+    }
+
     onSubmit(e) {
         e.preventDefault();
-        console.log(e.target)
         var ele = $(e.target);
-        console.log(ele);
         var companyName = ele.find("#company_name").val();
         var username = ele.find("#username").val();
         var password = ele.find("#password").val();
         var confirmPassword = ele.find("#confirmPassword").val();
-        var isCompany = true;
+        console.log(this.state.isCompany);
+        var isCompany = this.state.isCompany;
         if (password === confirmPassword && password !== "" && confirmPassword !== "") {
-
             var accountInfo = {
                 username: username,
                 password: password,
@@ -40,9 +46,8 @@ export default class Signup extends Component {
 
     render() {
         return (
-
         <div className="row">
-                <form onSubmit={this.onSubmit} className="col offset-s4 s4">
+                <form onSubmit={this.onSubmit.bind(this)} className="col offset-s4 s4">
                     <div className="row">
                         <div className="input-field col s12">
                             {/*<i className="material-icons prefix">account_circle</i>*/}
