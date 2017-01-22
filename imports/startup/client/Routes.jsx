@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+/*import React, {Component} from 'react';
+import App from './App.jsx';
 import {mount} from 'react-mounter'
 import CreateTask from '../../ui/pages/CreateTask.jsx';
 import LoggedInNavBar from '../../ui/components/LoggedInNavBar.jsx';
@@ -8,19 +9,6 @@ import MyTasks from '../../ui/pages/MyTasks.jsx';
 import StartPage from '../../ui/pages/StartPage.jsx';
 import UploadSolutions from '../../ui/pages/UploadSolutions.jsx';
 import Task from '../../ui/pages/Task.jsx';
-
-App = React.createClass({
-  render() {
-    return (
-      <div className="app-root">
-        <div className="container">
-          {this.props.content}
-        </div>
-      </div>
-    );
-  }
-});
-
 
 FlowRouter.route('/', {
     action(){
@@ -53,3 +41,11 @@ FlowRouter.route('/solutions/:taskId', {
         })
     }
 });
+
+FlowRouter.route('/uploadSolutions', {
+    action(){
+        mount(App, {
+            content: (<UploadSolutions/>)
+        })
+    }
+});*/
