@@ -84,11 +84,11 @@ export default class StartPage extends Component {
                             <div>
                                 {this.props.userIsCompany == true ?
                                     <div>
-                                        <h1> Welcome {Meteor.user().username}</h1>
+                                        <h1>Welcome {Meteor.user().username}</h1>
                                     </div>
                                     :
                                     <div>
-                                        <h1>DIN PAPPA</h1>
+                                        <h1>Welcome {Meteor.user().username}</h1>
                                     </div>
                                 }
                             </div>
