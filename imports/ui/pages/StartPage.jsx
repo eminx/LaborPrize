@@ -53,7 +53,7 @@ export default class StartPage extends Component {
             <div>
                 { !Meteor.userId() ?
                     <div>
-                        {this.state.personChosen == false ?
+                        {!this.state.personChosen ?
                             <div style={{marginLeft:500, marginTop:300}}>
                                 <form onClick={this.handleCompany.bind(this)}>
                                     <button className="waves-effect waves-teal btn-flat">Company</button>
@@ -64,7 +64,7 @@ export default class StartPage extends Component {
                             </div>
                             :
                             <div>
-                                {this.props.userIsCompany == true ?
+                                {this.props.userIsCompany ?
                                     <div>
                                         <Signup company={this.state.isCompany}/>
                                         <Login/>
