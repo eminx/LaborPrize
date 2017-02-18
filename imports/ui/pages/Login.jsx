@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Meteor } from 'meteor/meteor';
 
 
 export default class MyTasks extends Component {
@@ -10,13 +11,14 @@ export default class MyTasks extends Component {
         var password = el.find("#password").val();
 
 
-        Meteor.loginWithPassword(username, password, (er)=> {
+        Meteor.loginWithPassword(username, password, (er) => {
             if (er) {
                 console.log(er);
                 Materialize.toast(er.reason, 4000);
             }
             else {
-                window.location.reload();
+                Materialize.toast('Your account successfully created!');
+                FlowRouter.go('/my-tasks');
             }
 
         });
@@ -39,7 +41,7 @@ export default class MyTasks extends Component {
                         </div>
                     </div>
                     <div className="row">
-                        <button className="waves-effect waves-light btn">login</button>
+                        <button type="submit" className="waves-effect waves-light btn">login</button>
                     </div>
                 </form>
             </div>

@@ -5,37 +5,37 @@ export default class Signup extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            isCompany: props.company
-        }
     }
 
     onSubmit(e) {
         e.preventDefault();
-        var ele = $(e.target);
-        var companyName = ele.find("#company_name").val();
-        var username = ele.find("#username").val();
-        var password = ele.find("#password").val();
-        var confirmPassword = ele.find("#confirmPassword").val();
-        console.log(this.state.isCompany);
-        var isCompany = this.state.isCompany;
-        if (password === confirmPassword && password !== "" && confirmPassword !== "") {
-            var accountInfo = {
+        const ele = e.target;
+        console.log(e);
+        const companyName = ele.companyName.value || null;
+        const username = ele.userName.value;
+        const password = ele.passWord.value;
+        const confirmPassword = ele.confirmPassword.value;
+
+        const isCompany = this.props.company;
+        
+        if (password === confirmPassword && password !== "") {
+            let accountInfo = {
                 username: username,
                 password: password,
                 profile:{
-                    companyName,
-                    isCompany
+                    isCompany: this.props.company
                 }
             };
 
-            Accounts.createUser(accountInfo, function (er) {
+            this.props.company ? accountInfo.profile.company_name = companyName : null;
+
+            Accounts.createUser(accountInfo, (er) => {
                 if (er) {
                     console.log(er);
                     Materialize.toast(er.reason, 4000);
-                }
-                else {
-                    window.location.reload();
+                } else {
+                    Materialize.toast('Your account successfully created!');
+                    FlowRouter.go('/my-tasks');
                 }
             });
         } else {
@@ -47,34 +47,39 @@ export default class Signup extends Component {
     render() {
         return (
         <div className="row">
-                <form onSubmit={this.onSubmit.bind(this)} className="col offset-s4 s4">
-                    <div className="row">
-                        <div className="input-field col s12">
-                            {/*<i className="material-icons prefix">account_circle</i>*/}
-                            <input id="company_name" type="text" className="validate"/>
-                            <label htmlFor="company_name">Company Name</label>
+                <form onSubmit={this.onSubmit.bind(this)} className="col offset-s12 s12 m8 l6">
+                    { this.props.company
+                    ?
+                        <div className="row">
+                            
+                            <div className="input-field col s12">
+                                {/*<i className="material-icons prefix">account_circle</i>*/}
+                                <input name="companyName" id="company_name" type="text" className="validate"/>
+                                <label htmlFor="company_name">Company Name</label>
+                            </div> 
                         </div>
-                    </div>
+                    : null
+                    }
                     <div className="row">
                         <div className="input-field col s12">
-                            <input id="username" type="email" className="validate"/>
+                            <input name="userName" id="username" type="email" className="validate"/>
                             <label htmlFor="username">Email</label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col s12">
-                            <input id="password" type="password" className="validate"/>
+                            <input name="passWord" id="password" type="password" className="validate"/>
                             <label htmlFor="password">Password</label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col s12">
-                            <input id="confirmPassword" type="password" className="validate"/>
-                            <label htmlFor="confirmPassword">Confirm Password</label>
+                            <input name="confirmPassword" id="confirm_password" type="password" className="validate"/>
+                            <label htmlFor="confirm_password">Confirm Password</label>
                         </div>
                     </div>
                     <div className="row">
-                        <button className="waves-effect waves-light btn">Join</button>
+                        <button type="submit" className="waves-effect waves-light btn">Join</button>
                     </div>
                 </form>
             </div>

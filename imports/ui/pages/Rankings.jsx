@@ -19,6 +19,7 @@ export default class Ranking extends Component {
 		// 	rankAccept = form.
  		// console.log("u accepted")
  	}
+
  	handelDecline(e){
 		const decline = false;
 		Meteor.call('updateRankings', decline, (error, response) => {

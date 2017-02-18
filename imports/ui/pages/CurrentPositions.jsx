@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
  
 // App component - represents the whole app
-export default class CurrentJobs extends Component {
+export default class CurrentPositions extends Component {
  
   render() {
     return (

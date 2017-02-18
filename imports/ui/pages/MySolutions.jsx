@@ -14,7 +14,8 @@ function composer(props, onData) {
         onData(null, {ready: false});
     }
     }
-const MySolutions = React.createClass({
+
+class MySolutions extends Component {
 
     render() {
         return (
@@ -23,6 +24,6 @@ const MySolutions = React.createClass({
             </div>
         );
     }
-});
+};
 
 export default composeWithTracker(composer)(MySolutions);

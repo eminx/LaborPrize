@@ -7,58 +7,32 @@ export default class StartPage extends Component {
     constructor() {
         super();
         this.state = {
-            personChosen:false,
-            isCompany: false
+            isCompany: null
         };
-    }
 
-    handleCompany(e) {
-        e.preventDefault();
-        var personChosen = !this.state.personChosen;
-        this.setState({personChosen: personChosen})
-        var companyState = !this.state.isCompany;
-        this.setState({isCompany: companyState});
-    }
-
-    handleAssignee(e) {
-        e.preventDefault();
-        var personChosen = !this.state.personChosen;
-        this.setState({personChosen: personChosen})
+        const user = Meteor.user();
+        if (user) {
+            if (user.profile.isCompany) {
+               FlowRouter.go('/my-tasks');
+            } else {
+               FlowRouter.go('/open-positions');
+            }
+        }
     }
 
     render() {
         return (
             <div>
-                { !Meteor.userId() ?
-                    <div>
-                        {this.state.personChosen == false ?
-                            <div style={{marginLeft:500, marginTop:300}}>
-                                <form onClick={this.handleCompany.bind(this)}>
-                                    <button className="waves-effect waves-teal btn-flat">Company</button>
-                                </form>
-                                <form onClick={this.handleAssignee.bind(this)}>
-                                    <button className="waves-effect waves-teal btn-flat">Assignee</button>
-                                </form>
-                            </div>
-                            :
-                            <div>
-                                {this.state.isCompany == true ?
-                                    <div>
-                                        <Signup company = {this.state.isCompany}/>
-                                        <Login/>
-                                    </div>
-                                    :
-                                    <div>
-                                        <Signup company = {this.state.isCompany}/>
-                                        <Login/>
-                                    </div>
-                                }
-                            </div>
-                        }
+                { this.state.isCompany === null
+                ?
+                    <div style={{marginLeft:500, marginTop:300}}>
+                        <button onClick={() => this.setState({isCompany: true})} className="waves-effect waves-teal btn-flat">Company</button>
+                        <button onClick={() => this.setState({isCompany: false})} className="waves-effect waves-teal btn-flat">Assignee</button>
                     </div>
-                    :
+                :
                     <div>
-                        <h1>din mamma</h1>
+                        <Signup company = {this.state.isCompany}/>
+                        <Login/>
                     </div>
                 }
             </div>

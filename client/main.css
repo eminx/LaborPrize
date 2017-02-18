@@ -11,3 +11,18 @@
 .close-icon {
 	cursor: pointer;
 }
+
+.scale-transition.scale-in, .scale-transition.scale-out.scale-in {
+   transform: scale(1, 1);
+   transition: .3s all ease-in-out;
+   max-height: none;
+}
+.scale-transition.scale-out {
+	transform: scale(0, 0);
+	max-height: 0;
+	transition: .3s all ease-in-out;
+}
+
+.link {
+	cursor: pointer;
+}
