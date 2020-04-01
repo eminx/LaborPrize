@@ -30,9 +30,13 @@ export default class StartPage extends Component {
                         <button onClick={() => this.setState({isCompany: false})} className="waves-effect waves-teal btn-flat">Assignee</button>
                     </div>
                 :
-                    <div>
-                        <Signup company = {this.state.isCompany}/>
-                        <Login/>
+                    <div className="row">
+                        <div className="col s12 m6">
+                            <Signup company = {this.state.isCompany}/>
+                        </div>
+                        <div className="col s12 m6">
+                            <Login/>
+                        </div>
                     </div>
                 }
             </div>

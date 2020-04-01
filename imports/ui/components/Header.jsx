@@ -9,9 +9,12 @@ export default class Header extends Component {
 	render() {
 		return (
 			<nav>
-			  <div className="nav-wrapper">
+			  <div className="container nav-wrapper">
 			    <a className="brand-logo" onClick={this._goto.bind(this, '/my-tasks')} >LaborPrize</a>
-			    <ul id="nav-mobile" className="right hide-on-med-and-down">
+			    <ul id="nav-mobile" className="right hide-on-large">
+			    	<li><a>Tasks</a></li>
+			    </ul>
+ 			    <ul id="nav-desktop" className="right hide-on-med-and-down">
 			      <li onClick={this._goto.bind(this, '/my-tasks')} ><a>Tasks</a></li>
 			      <li onClick={this._goto.bind(this, '/current-positions')} ><a>Jobs</a></li>
 			      <li onClick={this._goto.bind(this, '/')} ><a>My Profile</a></li>

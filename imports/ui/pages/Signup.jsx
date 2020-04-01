@@ -47,7 +47,7 @@ export default class Signup extends Component {
     render() {
         return (
         <div className="row">
-                <form onSubmit={this.onSubmit.bind(this)} className="col offset-s12 s12 m8 l6">
+                <form onSubmit={this.onSubmit.bind(this)} className="col s12">
                     { this.props.company
                     ?
                         <div className="row">

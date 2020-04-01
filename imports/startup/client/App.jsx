@@ -11,12 +11,14 @@ import UploadSolutions from '../../ui/pages/UploadSolutions.jsx';
 import Task from '../../ui/pages/Task.jsx';
 import CurrentPositions from '../../ui/pages/CurrentPositions.jsx';
 import Header from '../../ui/components/Header.jsx';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 export default class App extends Component {
     render () {
         return (
             <div className="app-root">
-                <div className="container">
+                <div className="">
                     {this.props.header}
                 </div>
                 <div className="container">

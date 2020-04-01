@@ -4,7 +4,6 @@ import { composeWithTracker } from 'react-komposer';
 function composer(props, onData) {
   const subscription = Meteor.subscribe('task', props.taskId);
   if (subscription.ready()) {
-    console.log(Tasks.find().fetch());
     const data = {
       ready: true,
       tasks: Tasks.find({_id: props.taskId}).fetch()
@@ -16,11 +15,10 @@ function composer(props, onData) {
 }
 
 class Task extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      isEdit: false,
+      isEdit: true,
       emails: [],
       task_title: props.tasks ? props.tasks[0].title : '',
       task_desc: props.tasks ? props.tasks[0].description : ''
@@ -38,6 +36,7 @@ class Task extends Component {
         Materialize.toast(err.reason, 4000);
       } else {
         Materialize.toast('Your task is successfully updated!', 2000);
+        this.setState({isEdit: false});
       }
     });
   }
@@ -48,6 +47,12 @@ class Task extends Component {
       task_title: task.title,
       task_desc: task.description
     })
+    
+    if (task && task.description && task.description.length > 0) { 
+      this.setState({
+        isEdit: false
+      })
+    }
   }
 
   _addEmail(e) {
@@ -121,13 +126,10 @@ class Task extends Component {
     }
 
     return (
-      <div className="container">
-	        <header>
-
-	        </header>           
+      <div className="">      
 
           { isEdit
-          ? <div className="row">
+          ? <div className="row col s9">
 
               <div className="right-align">
                 <a onClick={() => this.setState({isEdit: false})} className={'btn-floating btn-large waves-effect waves-light'}><i className="material-icons">close</i></a>
@@ -136,11 +138,11 @@ class Task extends Component {
               <form className="col s12" onSubmit={this._updateTask.bind(this)}>
 
                 <div className='input-field col s12'>  
-                  <input id="task-title" name="task_title" type="text" value={this.state.task_title} className="validate" onChange={this.updateTitle.bind(this)} autofocus />
+                  <input id="task-title" name="task_title" type="text" value={this.state.task_title} className="validate" onChange={this.updateTitle.bind(this)} autoFocus />
                   <label className='active' htmlFor="task-title">Task Title</label>
                 </div>
                 <div className='input-field col s12'>
-                  <textarea id="task-desc" name="task_desc" value={this.state.task_desc} className="materialize-textarea" onChange={this.updateDesc.bind(this)} autofocus />
+                  <textarea id="task-desc" name="task_desc" value={this.state.task_desc} className="materialize-textarea" onChange={this.updateDesc.bind(this)} autoFocus />
                   <label className='active' htmlFor="task-desc">Task Description</label>
                 </div>
                 <div className='center-align'>

@@ -62,11 +62,11 @@ class MyTasks extends Component {
             </div>
           </div>
 
-          <div className={formScale} style={{textAlign: 'center'}} >
+          <div className={formScale} style={{textAlign: 'center', backgroundColor: '#f3f3f3', padding: '1em'}}  >
             <div className='right-align link'><i onClick={() => this.setState({isFormOpen: false})} style={{fontSize: '3rem'}} className='material-icons'>close</i></div> 
             <h3>Enter the Title</h3>
             <p>You will be able to enter more details afterwards</p>
-            <form onSubmit={this._createTask.bind(this)} className="">
+            <form onSubmit={this._createTask.bind(this)} className="clearfix">
               <div className="row">
                   <div className="input-field col s12">
                       <input id="task-title" name="task_title" type="text" style={{textAlign: 'center'}} className="validate"/>
